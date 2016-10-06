@@ -1,0 +1,5 @@
+---
+- name: Rbenv rehash
+  shell: cd; bash -lc "rbenv rehash"
+  sudo: yes
+  sudo_user: "{{ deploy_user }}"

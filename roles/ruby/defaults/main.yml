@@ -1,0 +1,5 @@
+---
+rbenv_makeopts: ""
+ruby_version: "1.9.3-p547"
+ruby_default_gems:
+  - bundler
