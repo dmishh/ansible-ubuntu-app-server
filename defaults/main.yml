@@ -1,0 +1,45 @@
+---
+deploy_user: www-data
+deploy_user_home: /var/www
+deploy_ssh_keys: []
+common_packages:
+  - build-essential
+  - python-software-properties
+  - python-dev
+  - python-setuptools
+  - python-mysqldb
+  - software-properties-common
+  - libpq-dev
+  - libjpeg62
+  - libjpeg62-dev
+  - libfreetype6
+  - libfreetype6-dev
+  - libreadline6
+  - libreadline6-dev
+  - libreadline-dev
+  - libsqlite3-0
+  - libsqlite3-dev
+  - libssl-dev
+  - libyaml-dev
+  - libc6-dev
+  - libncurses5-dev
+  - libtool
+  - libxml2-dev
+  - libxslt1-dev
+  - git
+  - multitail
+  - htop
+  - sloccount
+  - curl
+  - autoconf
+  - automake
+  - bison
+  - exuberant-ctags
+  - openssl
+  - sqlite3
+  - subversion
+  - imagemagick
+  - zlib1g
+  - zlib1g-dev
+  - vim
+extra_packages: []

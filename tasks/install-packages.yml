@@ -1,0 +1,8 @@
+---
+- name: Install common packages
+  action: apt pkg={{ item }} update-cache=yes state=installed
+  with_items: common_packages
+
+- name: Install extra packages
+  action: apt pkg={{ item }} update-cache=yes state=installed
+  with_items: extra_packages

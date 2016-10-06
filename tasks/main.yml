@@ -1,0 +1,15 @@
+---
+- include: configure-locale.yml
+  sudo: true
+  tags:
+    - common
+
+- include: install-packages.yml
+  sudo: true
+  tags:
+    - common
+
+- include: add-deploy-user.yml
+  sudo: true
+  tags:
+    - common

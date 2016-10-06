@@ -1,0 +1,37 @@
+---
+- name: Create deploy user group
+  group: name={{ deploy_user }} state=present
+
+- name: Ensure deploy user home directory exists
+  file: dest={{ deploy_user_home }} state=directory owner={{ deploy_user }} group={{ deploy_user }}
+
+- name: Create deploy user
+  user:
+    name: "{{ deploy_user }}"
+    group: "{{ deploy_user }}"
+    home: "{{ deploy_user_home }}"
+    createhome: yes
+    generate_ssh_key: yes
+    shell: /bin/bash
+
+- name: Ensure .ssh dir exists
+  file: dest=~{{ deploy_user }}/.ssh/ state=directory owner={{ deploy_user }} group={{ deploy_user }}
+
+- name: Add ssh keys to authorized_keys
+  lineinfile: dest=~{{ deploy_user }}/.ssh/authorized_keys insertafter=EOF line="{{ item }}" create=yes
+  with_items: deploy_ssh_keys
+  sudo: true
+  sudo_user: "{{ deploy_user }}"
+  when: deploy_ssh_keys|length > 0
+
+- name: Touch .bash_stuff
+  file: dest=~{{ deploy_user }}/.bash_stuff state=touch
+
+- name: Source .bash_stuff in .profile
+  lineinfile: dest=~{{ deploy_user }}/.profile regexp="\.bash_stuff" insertafter=EOF line="source ~/.bash_stuff" create=yes
+
+- name: Source .bash_stuff in .bashrc
+  lineinfile: dest=~{{ deploy_user }}/.bashrc regexp="\.bash_stuff" insertafter=EOF line="source ~/.bash_stuff" create=yes
+
+- name: Source .bash_stuff in .bash_profile
+  lineinfile: dest=~{{ deploy_user }}/.bash_profile regexp="\.bash_stuff" insertafter=EOF line="source ~/.bash_stuff" create=yes
