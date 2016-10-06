@@ -6,10 +6,10 @@ services:
 
 env:
   matrix:
-  - ANSIBLE_VERSION=1.9.4 ANSIBLE_ROLE_FILE=common.yml
-  - ANSIBLE_VERSION=1.9.4 ANSIBLE_ROLE_FILE=ruby.yml
-  - ANSIBLE_VERSION=2.1.2 ANSIBLE_ROLE_FILE=common.yml
-  - ANSIBLE_VERSION=2.1.2 ANSIBLE_ROLE_FILE=ruby.yml
+  - ANSIBLE_VERSION=1.9.4 ANSIBLE_PLAYBOOK_FILE=common.yml
+  - ANSIBLE_VERSION=1.9.4 ANSIBLE_PLAYBOOK_FILE=ruby.yml
+  - ANSIBLE_VERSION=2.1.2 ANSIBLE_PLAYBOOK_FILE=common.yml
+  - ANSIBLE_VERSION=2.1.2 ANSIBLE_PLAYBOOK_FILE=ruby.yml
 
 before_install:
 - sudo apt-get update -qq
@@ -20,10 +20,10 @@ install:
 
 script:
   - echo localhost > inventory
-  - ansible-playbook -i inventory tests/$ANSIBLE_ROLE_FILE --syntax-check
-  - ansible-playbook -i inventory tests/$ANSIBLE_ROLE_FILE --connection=local --sudo
+  - ansible-playbook -i inventory tests/$ANSIBLE_PLAYBOOK_FILE --syntax-check
+  - ansible-playbook -i inventory tests/$ANSIBLE_PLAYBOOK_FILE --connection=local --sudo
   - >
-    ansible-playbook -i inventory tests/$ANSIBLE_ROLE_FILE --connection=local --sudo
+    ansible-playbook -i inventory tests/$ANSIBLE_PLAYBOOK_FILE --connection=local --sudo
     | grep -q '.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
