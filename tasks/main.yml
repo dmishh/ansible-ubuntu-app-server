@@ -1,4 +1,9 @@
 ---
+- name: Read the variables
+  include_vars: main.yml
+  tags:
+    - common
+
 - include: configure-locale.yml
   sudo: true
   tags:
