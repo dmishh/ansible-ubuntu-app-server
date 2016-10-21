@@ -4,7 +4,7 @@
   notify: Restart nginx
 
 - name: Make sure configuration and log directories exist
-  file: path=/etc/nginx/{{item}} state=directory owner=root group=root mode=0755
+  file: path=/etc/nginx/{{ item }} state=directory owner=root group=root mode=0755
   with_items:
     - "sites-available"
     - "sites-enabled"
