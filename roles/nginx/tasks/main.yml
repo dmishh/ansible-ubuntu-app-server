@@ -1,0 +1,10 @@
+---
+- include: install.yml
+  sudo: true
+  tags:
+    - nginx
+
+- include: configure.yml
+  sudo: true
+  tags:
+    - nginx

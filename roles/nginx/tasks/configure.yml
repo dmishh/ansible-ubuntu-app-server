@@ -1,0 +1,21 @@
+---
+- name: Copy nginx.conf
+  template: src=nginx.conf dest=/etc/nginx/ owner=root group=root mode=0644
+  notify: Restart nginx
+
+- name: Make sure configuration and log directories exist
+  file: path=/etc/nginx/{{item}} state=directory owner=root group=root mode=0755
+  with_items:
+    - "sites-available"
+    - "sites-enabled"
+    - "auth_basic"
+    - "ssl"
+    - "conf.d"
+    - "conf.d/stream"
+
+- name: Disable the default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: Restart nginx
+
+# - name: Ensure deploy_user is a sudoer to restart nginx
+  # copy: content="{{ deploy_user }} ALL=(ALL) NOPASSWD: service nginx" dest=/etc/sudoers.d/{{ deploy_user }} owner=root group=root
