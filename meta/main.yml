@@ -1,7 +1,7 @@
 galaxy_info:
   author: Dmitriy Scherbina
   company: dmishh
-  description: ""
+  description: Base Ubuntu provisioning with Ansible for using as an application server (Ruby, PHP, Elixir, etc)
   min_ansible_version: 1.9.4
   license: MIT
   platforms:
