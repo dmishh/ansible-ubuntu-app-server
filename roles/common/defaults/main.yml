@@ -1,7 +1,7 @@
 ---
 deploy_user: www-data
 deploy_user_home: /var/www
-deploy_ssh_keys: []
+deploy_ssh_public_keys: []
 common_packages:
   - build-essential
   - python-software-properties
