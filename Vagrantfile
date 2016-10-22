@@ -12,6 +12,7 @@ Vagrant.configure('2') do |config|
       ansible.sudo = true
       ansible.inventory_path = 'vagrant-inventory'
       ansible.host_key_checking = false
+      ansible.limit = 'all'
       # use any of these: ruby, php, js, elixir
       # ansible.tags = ['ruby']
     end
