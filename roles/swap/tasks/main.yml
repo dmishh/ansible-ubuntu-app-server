@@ -1,0 +1,6 @@
+---
+- include: create-swap.yml
+  become_user: root
+  when: swap_on
+  tags:
+    - swap
