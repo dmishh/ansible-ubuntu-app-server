@@ -4,6 +4,8 @@ deploy_user_home: /var/www
 deploy_ssh_public_keys: []
 common_packages:
   - build-essential
+  - aptitude
+  - python-apt
   - python-software-properties
   - python-dev
   - python-setuptools
