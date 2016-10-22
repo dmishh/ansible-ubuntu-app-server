@@ -1,18 +1,15 @@
 ---
 - include: install-rbenv.yml
-  sudo: yes
-  sudo_user: "{{ deploy_user }}"
+  become_user: "{{ deploy_user }}"
   tags:
     - ruby
 
 - include: install-ruby.yml
-  sudo: yes
-  sudo_user: "{{ deploy_user }}"
+  become_user: "{{ deploy_user }}"
   tags:
     - ruby
 
 - include: install-ruby-gems.yml
-  sudo: yes
-  sudo_user: "{{ deploy_user }}"
+  become_user: "{{ deploy_user }}"
   tags:
     - ruby

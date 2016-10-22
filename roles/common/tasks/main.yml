@@ -1,15 +1,15 @@
 ---
 - include: configure-locale.yml
-  sudo: true
+  become_user: root
   tags:
     - common
 
 - include: install-packages.yml
-  sudo: true
+  become_user: root
   tags:
     - common
 
 - include: add-deploy-user.yml
-  sudo: true
+  become_user: root
   tags:
     - common

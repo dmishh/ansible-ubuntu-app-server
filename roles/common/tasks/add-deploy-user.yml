@@ -19,9 +19,8 @@
 
 - name: Add ssh keys to authorized_keys
   lineinfile: dest=~{{ deploy_user }}/.ssh/authorized_keys insertafter=EOF line="{{ item }}" create=yes
-  with_items: deploy_ssh_keys
-  sudo: true
-  sudo_user: "{{ deploy_user }}"
+  with_items: "{{ deploy_ssh_keys }}"
+  become_user: "{{ deploy_user }}"
   when: deploy_ssh_keys|length > 0
 
 - name: Touch .bash_stuff
