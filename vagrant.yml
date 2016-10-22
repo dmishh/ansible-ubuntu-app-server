@@ -8,4 +8,4 @@
   vars:
     swap_on: true
     security_sudoer_username: uadmin
-    security_sudoer_password: uadmin1
+    security_sudoer_password: padmin

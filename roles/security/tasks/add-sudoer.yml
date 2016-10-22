@@ -3,7 +3,7 @@
   user: name={{ security_sudoer_username }} state=present
 
 - name: Create sudoer
-  user: name={{ security_sudoer_username }} generate_ssh_key=yes shell=/bin/bash group={{ security_sudoer_username }} home=/home/{{ security_sudoer_username }} password="{{ security_sudoer_password }}" update_password=always createhome=yes
+  user: name={{ security_sudoer_username }} generate_ssh_key=yes shell=/bin/bash group={{ security_sudoer_username }} home=/home/{{ security_sudoer_username }} password="{{ security_sudoer_password|password_hash('sha512') }}" update_password=always createhome=yes
 
 - name: Allow sudo
   lineinfile: dest=/etc/sudoers backup=yes insertafter=EOF line="{{ security_sudoer_username }} ALL=(ALL) NOPASSWD:ALL" state=present
