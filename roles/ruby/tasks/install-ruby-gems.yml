@@ -1,5 +1,5 @@
 ---
 - name: Install default gems
   shell: cd; bash -lc "gem install {{ item }}"
-  with_items: ruby_default_gems
+  with_items: "{{ ruby_default_gems }}"
   notify: Rbenv rehash
