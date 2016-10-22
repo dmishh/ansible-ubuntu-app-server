@@ -1,0 +1,4 @@
+---
+- name: Copy ssh_config
+  template: src=sshd_config dest=/etc/ssh/ owner=root group=root mode=0644
+  notify: Restart ssh

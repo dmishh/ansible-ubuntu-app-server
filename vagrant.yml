@@ -1,5 +1,11 @@
 - hosts: all
   roles:
     - common
-    # - ruby
+    - swap
+    - ruby
     - nginx
+    - security
+  vars:
+    swap_on: true
+    security_sudoer_username: uadmin
+    security_sudoer_password: uadmin1

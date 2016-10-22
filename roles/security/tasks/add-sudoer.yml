@@ -1,0 +1,17 @@
+---
+- name: Create sudoer group
+  user: name={{ security_sudoer_username }} state=present
+
+- name: Create sudoer
+  user: name={{ security_sudoer_username }} generate_ssh_key=yes shell=/bin/bash group={{ security_sudoer_username }} home=/home/{{ security_sudoer_username }} password="{{ security_sudoer_password }}" update_password=always createhome=yes
+
+- name: Allow sudo
+  lineinfile: dest=/etc/sudoers backup=yes insertafter=EOF line="{{ security_sudoer_username }} ALL=(ALL) NOPASSWD:ALL" state=present
+
+- name: Ensure .ssh dir exists
+  file: dest=~{{ security_sudoer_username }}/.ssh/ state=directory owner={{ security_sudoer_username }} group={{ security_sudoer_username }}
+
+- name: Add ssh keys to authorized_keys
+  lineinfile: dest=~{{ security_sudoer_username }}/.ssh/authorized_keys insertafter=EOF line="{{ item }}" create=yes
+  with_items: "{{ security_ssh_public_keys }}"
+  when: security_ssh_public_keys|length > 0

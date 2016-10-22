@@ -1,0 +1,13 @@
+---
+security_default_packages:
+  - fail2ban
+  - ufw
+  - unattended-upgrades
+security_sudoer_username: uadmin
+# forced to set by the user
+# security_sudoer_password:
+security_ssh_port: 22
+security_ssh_public_keys: []
+security_ufw_allowed_ports:
+  - 80
+  - 443

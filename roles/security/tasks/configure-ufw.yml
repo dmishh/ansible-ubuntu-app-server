@@ -1,0 +1,5 @@
+---
+- name: Configure allowed ufw ports
+  shell: ufw allow {{ item }}
+  with_items: "{{ security_ufw_allowed_ports|union([security_ssh_port])|unique|list }}"
+  notify: Activate ufw

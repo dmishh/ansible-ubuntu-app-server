@@ -1,0 +1,4 @@
+---
+- name: Install base packages
+  apt: name={{ item }} update-cache=yes
+  with_items: "{{ security_default_packages }}"
