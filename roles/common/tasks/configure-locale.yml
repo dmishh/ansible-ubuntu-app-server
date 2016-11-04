@@ -1,3 +1,6 @@
 ---
-- name: Setup locales
+- name: Copy locales configuration
   copy: src=locale dest=/etc/default/locale
+
+- name: Generate default locale
+  locale_gen: name=en_US.UTF-8 state=present
