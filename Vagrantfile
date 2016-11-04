@@ -3,7 +3,7 @@
 
 Vagrant.configure('2') do |config|
   config.vm.define 'appserver.local' do |c|
-    c.vm.box = 'ubuntu/trusty64'
+    c.vm.box = 'ubuntu/xenial64'
     c.vm.network :private_network, ip: '192.168.9.100'
     c.vm.hostname = 'appserver.local'
 
