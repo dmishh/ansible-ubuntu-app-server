@@ -1,0 +1,10 @@
+---
+- include: install.yml
+  become: true
+  tags:
+    - nodejs
+
+- include: install-modules.yml
+  become: true
+  tags:
+    - nodejs

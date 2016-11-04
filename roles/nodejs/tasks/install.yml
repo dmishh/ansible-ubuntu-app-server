@@ -1,0 +1,6 @@
+---
+- name: Add NodeSource Node.js repository
+  shell: curl -sL https://deb.nodesource.com/setup_{{ nodejs_major_version }}.x | sudo -E bash -
+
+- name: Install nodejs
+  apt: name=nodejs state=installed update-cache=yes

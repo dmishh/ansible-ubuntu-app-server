@@ -1,0 +1,4 @@
+---
+nodejs_major_version: 6
+nodejs_global_modules:
+  - bower
