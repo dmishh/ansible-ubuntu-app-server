@@ -6,6 +6,19 @@
 
 Easy to use server provisioning for using Ubuntu as an application server for PHP (in progress), Ruby (in progress), Javascript (in progress) and Elixir (in progress)
 
+
+## Install
+
+```bash
+ansible-galaxy install --roles-path . dmishh.ubuntu-app-server```
+
+## FAQ
+
+
+### Use with your own roles
+
+TODO
+
 ## License
 
 The MIT License. For the full text of license, please, see [LICENSE](/LICENSE)
