@@ -44,4 +44,3 @@ common_packages:
   - zlib1g
   - zlib1g-dev
   - vim
-extra_packages: []
