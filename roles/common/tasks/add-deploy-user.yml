@@ -23,14 +23,3 @@
   become_user: "{{ deploy_user }}"
   when: deploy_ssh_public_keys|length > 0
 
-- name: Touch .bash_stuff
-  file: dest=~{{ deploy_user }}/.bash_stuff state=touch
-
-- name: Source .bash_stuff in .profile
-  lineinfile: dest=~{{ deploy_user }}/.profile regexp="\.bash_stuff" insertafter=EOF line="source ~/.bash_stuff" create=yes
-
-- name: Source .bash_stuff in .bashrc
-  lineinfile: dest=~{{ deploy_user }}/.bashrc regexp="\.bash_stuff" insertafter=EOF line="source ~/.bash_stuff" create=yes
-
-- name: Source .bash_stuff in .bash_profile
-  lineinfile: dest=~{{ deploy_user }}/.bash_profile regexp="\.bash_stuff" insertafter=EOF line="source ~/.bash_stuff" create=yes

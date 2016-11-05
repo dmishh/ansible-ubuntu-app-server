@@ -1,0 +1,3 @@
+---
+- name: Copy .bashrc
+  copy: src=.bashrc dest={{ deploy_user_home }}/.bashrc owner={{ deploy_user }} group={{ deploy_user }}

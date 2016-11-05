@@ -13,3 +13,9 @@
   become_user: root
   tags:
     - common
+
+- include: configure-bash.yml
+  become_user: "{{ deploy_user }}"
+  tags:
+    - common
+
