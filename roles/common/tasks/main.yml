@@ -19,3 +19,7 @@
   tags:
     - common
 
+- include: configure-tmux.yml
+  become_user: "{{ deploy_user }}"
+  tags:
+    - common

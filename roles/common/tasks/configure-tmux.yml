@@ -1,0 +1,6 @@
+---
+- name: Copy .tmux/
+  copy: src=.tmux/ dest={{ deploy_user_home }}/.tmux/ owner={{ deploy_user }} group={{ deploy_user }}
+
+- name: Copy .tmux
+  copy: src=.tmux.conf dest={{ deploy_user_home }}/.tmux.conf owner={{ deploy_user }} group={{ deploy_user }}
