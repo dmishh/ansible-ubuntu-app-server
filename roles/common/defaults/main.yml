@@ -43,6 +43,7 @@ common_packages:
   - sqlite3
   - subversion
   - tmux
+  - unzip
   - vim
   - zlib1g
   - zlib1g-dev
