@@ -45,5 +45,6 @@ common_packages:
   - tmux
   - unzip
   - vim
+  - zip
   - zlib1g
   - zlib1g-dev
